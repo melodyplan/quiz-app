@@ -14,16 +14,18 @@
     <section>
       <h1>Test Your Basic MTG Knowledge!</h1>
       <button type="submit">Click Me to Start</button>
-      <!--Need to link it to show hidden questions-->
+      <!--Need to link it   to show hidden questions-->
     </section>
   </main>
-  <div class="questions">
+  <div class="questions" style="max-width:800px">
     <!--these are hidden (uncomment them on CSS), need to have them individually
     show when a choice is chosen and such. also onmouseover styling to
     highlight. onmouseclick to show the correct and incorrect and current "score"
     onmouseoff to fadeout the previous questions and "fire" the next question.-->
     <p>1. Which is NOT a basic land type?</p>
-    <input type="submit" name="q1" value="swamp"><br />
+    <a href="JavaScript:void(0)" onmouseover="this.style.color='red';"
+    onmouseup="this.text='x1 incorrect'">
+    <input type="submit" name="q1" value="swamp"></a><br />
     <input type="submit" name="q1" value="plains"><br />
     <input type="submit" name="q1" value="earth"><br />
     <input type="submit" name="q1" value="island"><br />

@@ -1,9 +1,13 @@
-.questions {
+/*.questions {
   display: none;
-  /*vs possibly visibility:hidden ?*/
+  vs possibly visibility:hidden ?
+}*/
+
+input:hover {
+  background-color: green;
 }
 
 .results {
   visibiity: hidden;
-  /*how come this doesn't work?*/
+  /*how come this doesn't work?
 }
