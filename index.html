@@ -23,12 +23,17 @@
     highlight. onmouseclick to show the correct and incorrect and current "score"
     onmouseoff to fadeout the previous questions and "fire" the next question.-->
     <p>1. Which is NOT a basic land type?</p>
+    <input type="submit" name="q1" value="swamp" onmousedown="mouseDown()"><br />
+    <!--testing jquery mouseDown function above-->
     <a href="JavaScript:void(0)" onmouseover="this.style.color='red';"
     onmouseup="this.text='x1 incorrect'">
-    <input type="submit" name="q1" value="swamp"></a><br />
-    <input type="submit" name="q1" value="plains"><br />
-    <input type="submit" name="q1" value="earth"><br />
-    <input type="submit" name="q1" value="island"><br />
+    <input type="submit" name="q1" value="plains"></a><br />
+    <a href="JavaScript:void(0)" onmouseover="this.style.color='green';"
+    onmouseup="this.text='1x correct!'">
+    <input type="submit" name="q1" value="earth"></a><br />
+    <a href="JavaScript:void(0)" onmouseover="this.style.color='red';"
+    onmouseup="this.text='x1 incorrect'">
+    <input type="submit" name="q1" value="island"></a><br />
 
     <p>2. What is the beginning phase order?</p>
     <input type="submit" name="q2" value="untap --> upkeep --> draw"><br />
