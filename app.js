@@ -63,10 +63,12 @@ function main() {
     form.find('label').eq(3).html('<input value=' + questionObj.answers[3] + ' name="q1" type="radio"> ' + questionObj.answers[3])
 }
 
+//proper figure out what this does
 function choose() {
   questions[questionNumber] = +$('input[name="answer"]:checked').val();
 }
 
+//what am i doing wronnngg -- this should iterate right?
 function submit() {
   form.fadeOut(function() {
     $('.question').remove();
@@ -81,13 +83,21 @@ function submit() {
   });
 }
 
-var numCorrect = 0;
-for (var i = 0; i < questions.length; i++) {
-  if (questions[i] === questions[i].correctAnswer) {
-    numCorrect++;
-  }
-}
 //need to make a function to iterate through all questions.
+//why doesn't the below work? how come it won't iterate? -_-
+
+function userScore() {
+  var numCorrect = 0;
+  for (var i = 0; i < questions.length; i++) {
+    if (questions[i] === questions[i].correctAnswer) {
+      numCorrect++;
+    }
+  }
+
+  score.append('You got ' + numCorrect + ' questions out of 10 correct!');
+  return score;
+}
+
 
 $(document).ready(function() {
     main();
