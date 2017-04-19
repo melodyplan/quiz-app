@@ -2,104 +2,53 @@
 <head>
   <title>Quiz App</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
-<!--change the font below. placehold for now-->
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <div class="container">
-  <main>
-    <section>
-      <h1>Test Your Basic MTG Knowledge!</h1>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Test Your Basic MTG Knowledge!</a>
+    </div>
+  </div>
+</nav>
+  <main class="container-fluid">
+    <section class="row hidden">
       <button type="submit">Click Me to Start</button>
       <!--Need to link it   to show hidden questions-->
     </section>
+    <section class="row text-center">
+      <form class="question-form col-md-8 text-left">
+        <h3>Question 1</h3>
+        <div class="radio answer-1">
+          <label>
+            <input value="Answer 1" name="q1" type="radio"> Answer 1
+          </label>
+        </div>
+        <div class="radio answer-2">
+          <label>
+            <input value="Answer 2" name="q1" type="radio"> Answer 2
+          </label>
+        </div>
+        <div class="radio answer-3">
+          <label>
+            <input value="Answer 3" name="q1" type="radio"> Answer 3
+          </label>
+        </div>
+        <div class="radio answer-4">
+          <label>
+            <input value="Answer 4" name="q1" type="radio"> Answer 4
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default pull-right">Submit</button>
+      </form>
+    </section>
   </main>
-  <div class="questions" style="max-width:800px">
-    <!--these are hidden (uncomment them on CSS), need to have them individually
-    show when a choice is chosen and such. also onmouseover styling to
-    highlight. onmouseclick to show the correct and incorrect and current "score"
-    onmouseoff to fadeout the previous questions and "fire" the next question.-->
-    <p>1. Which is NOT a basic land type?</p>
-    <input type="submit" name="q1" value="swamp" onmousedown="mouseDown()"><br />
-    <!--testing jquery mouseDown function above-->
-    <a href="JavaScript:void(0)" onmouseover="this.style.color='red';"
-    onmouseup="this.text='x1 incorrect'">
-    <input type="submit" name="q1" value="plains"></a><br />
-    <a href="JavaScript:void(0)" onmouseover="this.style.color='green';"
-    onmouseup="this.text='1x correct!'">
-    <input type="submit" name="q1" value="earth"></a><br />
-    <a href="JavaScript:void(0)" onmouseover="this.style.color='red';"
-    onmouseup="this.text='x1 incorrect'">
-    <input type="submit" name="q1" value="island"></a><br />
 
-    <p>2. What is the beginning phase order?</p>
-    <input type="submit" name="q2" value="untap --> upkeep --> draw"><br />
-    <input type="submit" name="q2" value="upkeep --> untap --> draw"><br />
-    <input type="submit" name="q2" value="draw --> untap --> upkeep"><br />
-    <input type="submit" name="q2" value="upkeep --> draw --> untap"><br />
-
-    <p>3. An interrupt can only be cast when:</p>
-    <input type="submit" name="q3" value="Begining phase only"><br />
-    <input type="submit" name="q3" value="Any time"><br />
-    <input type="submit" name="q3" value="Main phase only"><br />
-    <input type="submit" name="q3" value="Attack phase only"><br />
-
-    <p>4. A standard deck contains:</p>
-    <input type="submit" name="q4" value="40 cards"><br />
-    <input type="submit" name="q4" value="100 cards"><br />
-    <input type="submit" name="q4" value="80 cards"><br />
-    <input type="submit" name="q4" value="60 cards"><br />
-
-    <p>5. In competitive draft play a deck must have at least:</p>
-    <input type="submit" name="q5" value="40 cards"><br />
-    <input type="submit" name="q5" value="100 cards"><br />
-    <input type="submit" name="q5" value="80 cards"><br />
-    <input type="submit" name="q5" value="60 cards"><br />
-
-<!--Need to break this line of text up so it won't be so long /n?
-read someting about display_txt.replace(/\n/g, "<br />") for jQuery
-is that necessary?-->
-    <p>6. Which of the follwing is true for the attack phase:</p>
-    <input type="submit" name="q6" value="You must declare all attackers before attacking"><br />
-    <input type="submit" name="q6" value="You must declare blockers during the declaration of attackers."><br />
-    <input type="submit" name="q6" value="You are allowed one undeclare of an attacker if they can be destroyed by any number of blockers."><br />
-    <input type="submit" name="q6" value="The opponent can not block an attack if it kills their blocker."><br />
-
-    <p>7. The term "tapping" is a physical action that:</p>
-    <input type="submit" name="q7" value="Turns your card face down"><br />
-    <input type="submit" name="q7" value="Discards your card to the graveyard"><br />
-    <input type="submit" name="q7" value="Turns your card sideways"><br />
-    <input type="submit" name="q7" value="Slides your card to your opponent"><br />
-
-    <p>8. A player draws __ cards at the beginning of the game.</p>
-    <input type="submit" name="q8" value="10 cards"><br />
-    <input type="submit" name="q8" value="9 cards"><br />
-    <input type="submit" name="q8" value="8 cards"><br />
-    <input type="submit" name="q8" value="7 cards"><br />
-
-    <p>9. A player can have a maximum of __ cards in their hand.</p>
-    <input type="submit" name="q9" value="9 cards"><br />
-    <input type="submit" name="q9" value="10 cards"><br />
-    <input type="submit" name="q9" value="11 cards"><br />
-    <input type="submit" name="q9" value="12 cards"><br />
-
-    <p>10. A player must have a minimum of __ cards in their hand.</p>
-    <input type="submit" name="q10" value="3 cards"><br />
-    <input type="submit" name="q10" value="2 cards"><br />
-    <input type="submit" name="q10" value="1 cards"><br />
-    <input type="submit" name="q10" value="There is no minimum"><br />
-
-  </div>
-  <!--Should appear after last question is answered-->
-  <div class="results">
-    <p>Overall Score: [code defining percentage here]<br />
-    [further break down of score on mouse click, probably using visibility: hidden]</br />
-    <button type="submit" onclick="resetQuestions()">Try Again?</button>
-  </div>
 <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

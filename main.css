@@ -1,13 +1,10 @@
-/*.questions {
-  display: none;
-  vs possibly visibility:hidden ?
-}*/
-
-input:hover {
-  background-color: green;
-}
-
-.results {
-  visibiity: hidden;
-  /*how come this doesn't work?
+.question-form {
+  max-width: 80%;
+  display: inline-block;
+  width: 500px;
+  border: 1px solid lightslategrey;
+  padding: 10px 15px 10px 25px;
+  border-radius: 5px;
+  box-shadow: 3px 4px 10px 4px rgba(0,0,0,0.2);
+  margin-top: 15%;
 }
