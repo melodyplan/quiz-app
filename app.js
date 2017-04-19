@@ -63,6 +63,30 @@ function main() {
     form.find('label').eq(3).html('<input value=' + questionObj.answers[3] + ' name="q1" type="radio"> ' + questionObj.answers[3])
 }
 
+function choose() {
+  questions[questionNumber] = +$('input[name="answer"]:checked').val();
+}
+
+function submit() {
+  form.fadeOut(function() {
+    $('.question').remove();
+
+    if(questionNumber < questions.length){
+      var nextQuestion = main(questionNumber);
+      form.append(nextQuestion).fadeIn();
+      if (!(isNaN(questions[questionNumber]))) {
+        $('input[value='+questions[questionNumber]+']').prop('checked, true');
+      }
+    }
+  });
+}
+
+var numCorrect = 0;
+for (var i = 0; i < questions.length; i++) {
+  if (questions[i] === questions[i].correctAnswer) {
+    numCorrect++;
+  }
+}
 //need to make a function to iterate through all questions.
 
 $(document).ready(function() {
