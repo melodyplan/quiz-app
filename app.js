@@ -6,8 +6,8 @@ var questions = [
   },
   {
     question: 'What is the beginning phase order:',
-    answers: ['untap —> upkeep —> draw', 'upkeep —> untap —> draw', 'draw —> untap —> upkeep', 'upkeep —> draw —> untap'],
-    correctAnswer: 'untap —> upkeep —> draw'
+    answers: ['untap &rarr; upkeep &rarr; draw', 'upkeep &rarr; untap &rarr; draw', 'draw &rarr; untap &rarr; upkeep', 'upkeep &rarr; draw &rarr; untap'],
+    correctAnswer: 'untap &rarr; upkeep &rarr; draw'
   },
   {
     question: 'An interrupt/instant can be cast when:',
@@ -30,7 +30,7 @@ var questions = [
     correctAnswer: 'You must declare all attackers before attacking.'
   },
   {
-    question: 'The term “tapping” is a physical action that:',
+    question: 'The term "tapping" is a physical action that:',
     answers: ['Turns your card face down', 'Discards your card to the graveyard', 'Turns you card sideways', 'Slide your card to the opponent '],
     correctAnswer: 'Turns you card sideways'
   },
@@ -55,47 +55,29 @@ var questionNumber = 0;
 
 function main() {
     var form = $('.question-form')
-    var questionObj = questions[questionNumber]
-    form.find('h3').text(questionObj.question)
-    form.find('label').eq(0).html('<input value=' + questionObj.answers[0] + ' name="q1" type="radio"> ' + questionObj.answers[0])
-    form.find('label').eq(1).html('<input value=' + questionObj.answers[1] + ' name="q1" type="radio"> ' + questionObj.answers[1])
-    form.find('label').eq(2).html('<input value=' + questionObj.answers[2] + ' name="q1" type="radio"> ' + questionObj.answers[2])
-    form.find('label').eq(3).html('<input value=' + questionObj.answers[3] + ' name="q1" type="radio"> ' + questionObj.answers[3])
+
+    form.on('submit', function(event) {
+      event.preventDefault()
+      var answer = form.find('input[name="answer"]:checked').val()
+      console.log(answer, questions[questionNumber].correctAnswer, answer === questions[questionNumber].correctAnswer)
+      questionNumber++
+      renderQuestion(form);
+      $('.submit-button').attr('disabled', true)
+    })
+    form.on('change', 'input[type="radio"]', function() {
+      $('.submit-button').attr('disabled', false)
+    })
+
+    renderQuestion(form);
 }
 
-//proper figure out what this does
-function choose() {
-  questions[questionNumber] = +$('input[name="answer"]:checked').val();
-}
-
-//what am i doing wronnngg -- this should iterate right?
-function submit() {
-  form.fadeOut(function() {
-    $('.question').remove();
-
-    if(questionNumber < questions.length){
-      var nextQuestion = main(questionNumber);
-      form.append(nextQuestion).fadeIn();
-      if (!(isNaN(questions[questionNumber]))) {
-        $('input[value='+questions[questionNumber]+']').prop('checked, true');
-      }
-    }
-  });
-}
-
-//need to make a function to iterate through all questions.
-//why doesn't the below work? how come it won't iterate? -_-
-
-function userScore() {
-  var numCorrect = 0;
-  for (var i = 0; i < questions.length; i++) {
-    if (questions[i] === questions[i].correctAnswer) {
-      numCorrect++;
-    }
-  }
-
-  score.append('You got ' + numCorrect + ' questions out of 10 correct!');
-  return score;
+function renderQuestion(form) {
+  var questionObj = questions[questionNumber]
+  form.find('h3').text(questionObj.question)
+  form.find('label').eq(0).html('<input value="' + questionObj.answers[0] + '" name="answer" type="radio"> ' + questionObj.answers[0])
+  form.find('label').eq(1).html('<input value="' + questionObj.answers[1] + '" name="answer" type="radio"> ' + questionObj.answers[1])
+  form.find('label').eq(2).html('<input value="' + questionObj.answers[2] + '" name="answer" type="radio"> ' + questionObj.answers[2])
+  form.find('label').eq(3).html('<input value="' + questionObj.answers[3] + '" name="answer" type="radio"> ' + questionObj.answers[3])
 }
 
 
