@@ -62,19 +62,28 @@ function main() {
       var answer = form.find('input[name="answer"]:checked').val()
       if (answer === questions[questionNumber].correctAnswer) {
         numberCorrect++
+        $('div.alert.alert-success').attr('hidden', false)
       }
       console.log(`${numberCorrect} out of ${questions.length}`)
       //console.log('numberCorrect + ' out of ' + questions.length')
       questionNumber++
       renderQuestion(form);
       $('.submit-button').attr('disabled', true)
+      $('div.alert.alert-success').attr('hidden', true)
+      //$('div.alert.alert-danger').attr('hidden', true)
     })
 
     form.on('change', 'input[type="radio"]', function() {
       $('.submit-button').attr('disabled', false)
+      //if (answer === questions[questionNumber].correctAnswer) {
+        //$('div.alert.alert-success').attr('hidden', false)
+      //} else {
+        //$('div.alert.alert-danger').attr('hidden', false)
+      //}
     })
 
     renderQuestion(form);
+    //renderAlert();
 }
 
 function renderQuestion(form) {
@@ -85,8 +94,11 @@ function renderQuestion(form) {
   form.find('label').eq(1).html('<input value="' + questionObj.answers[1] + '" name="answer" type="radio"> ' + questionObj.answers[1])
   form.find('label').eq(2).html(`<input value="${questionObj.answers[2]}" name="answer" type="radio"> ${questionObj.answers[2]}`)
   form.find('label').eq(3).html(`<input value="${questionObj.answers[3]}" name="answer" type="radio"> ${questionObj.answers[3]}`)
-
 }
+
+/*function renderAlert() {
+  if ()
+}*/
 
 
 $(document).ready(function() {
