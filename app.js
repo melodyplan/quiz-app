@@ -31,7 +31,7 @@ var questions = [
   },
   {
     question: 'The term "tapping" is a physical action that:',
-    answers: ['Turns your card face down', 'Discards your card to the graveyard', 'Turns you card sideways', 'Slide your card to the opponent '],
+    answers: ['Turns your card face down', 'Discards your card to the graveyard', 'Turns your card sideways', 'Slide your card to the opponent '],
     correctAnswer: 'Turns you card sideways'
   },
   {
@@ -45,13 +45,14 @@ var questions = [
     correctAnswer: '10'
   },
   {
-    question: 'A player must have a minimum of __ cards in their hand:',
+    question: 'A player can have a minimum of __ cards in their hand:',
     answers: ['3', '2', '1', '0'],
     correctAnswer: '0'
   }
 ];
 
 var questionNumber = 0;
+var numberCorrect = 0;
 
 function main() {
     var form = $('.question-form')
@@ -59,11 +60,16 @@ function main() {
     form.on('submit', function(event) {
       event.preventDefault()
       var answer = form.find('input[name="answer"]:checked').val()
-      console.log(answer, questions[questionNumber].correctAnswer, answer === questions[questionNumber].correctAnswer)
+      if (answer === questions[questionNumber].correctAnswer) {
+        numberCorrect++
+      }
+      console.log(`${numberCorrect} out of ${questions.length}`)
+      //console.log('numberCorrect + ' out of ' + questions.length')
       questionNumber++
       renderQuestion(form);
       $('.submit-button').attr('disabled', true)
     })
+
     form.on('change', 'input[type="radio"]', function() {
       $('.submit-button').attr('disabled', false)
     })
@@ -73,11 +79,13 @@ function main() {
 
 function renderQuestion(form) {
   var questionObj = questions[questionNumber]
+  form.find('h6').text('#' + (questionNumber + 1))
   form.find('h3').text(questionObj.question)
   form.find('label').eq(0).html('<input value="' + questionObj.answers[0] + '" name="answer" type="radio"> ' + questionObj.answers[0])
   form.find('label').eq(1).html('<input value="' + questionObj.answers[1] + '" name="answer" type="radio"> ' + questionObj.answers[1])
-  form.find('label').eq(2).html('<input value="' + questionObj.answers[2] + '" name="answer" type="radio"> ' + questionObj.answers[2])
-  form.find('label').eq(3).html('<input value="' + questionObj.answers[3] + '" name="answer" type="radio"> ' + questionObj.answers[3])
+  form.find('label').eq(2).html(`<input value="${questionObj.answers[2]}" name="answer" type="radio"> ${questionObj.answers[2]}`)
+  form.find('label').eq(3).html(`<input value="${questionObj.answers[3]}" name="answer" type="radio"> ${questionObj.answers[3]}`)
+
 }
 
 
