@@ -14,7 +14,7 @@ var questions = [
     answers: ['Beginning phase only', 'Any time', 'Main phase only', 'Attack phase only'],
     correctAnswer: 'Any time'
   },
-  {
+  /*{
     question: 'A standard deck of Magic cards has:',
     answers: ['40 cards', '100 cards', '80 cards', '60 cards'],
     correctAnswer: '60 cards'
@@ -48,7 +48,7 @@ var questions = [
     question: 'A player can have a minimum of __ cards in their hand:',
     answers: ['3', '2', '1', '0'],
     correctAnswer: '0'
-  }
+  }*/
 ];
 
 var questionNumber = 0;
@@ -59,18 +59,28 @@ function main() {
 
     form.on('submit', function(event) {
       event.preventDefault()
+      if (questionNumber >= questions.length) {
+        $('.alert').addClass('hidden')
+        return form.addClass('hidden')
+      }
       var answer = form.find('input[name="answer"]:checked').val()
       if (answer === questions[questionNumber].correctAnswer) {
         numberCorrect++
-        $('div.alert.alert-success').attr('hidden', false)
+        $('.alert')
+          .addClass('alert-success')
+          .removeClass('hidden alert-danger')
+          .html('<strong>Well done!</strong> That was the correct answer.')
+      } else {
+        $('.alert')
+          .addClass('alert-danger')
+          .removeClass('hidden alert-success')
+          .html('<strong>Tapped out!</strong> Be better.')
       }
       console.log(`${numberCorrect} out of ${questions.length}`)
       //console.log('numberCorrect + ' out of ' + questions.length')
       questionNumber++
       renderQuestion(form);
       $('.submit-button').attr('disabled', true)
-      $('div.alert.alert-success').attr('hidden', true)
-      //$('div.alert.alert-danger').attr('hidden', true)
     })
 
     form.on('change', 'input[type="radio"]', function() {
@@ -83,7 +93,6 @@ function main() {
     })
 
     renderQuestion(form);
-    //renderAlert();
 }
 
 function renderQuestion(form) {
@@ -95,11 +104,6 @@ function renderQuestion(form) {
   form.find('label').eq(2).html(`<input value="${questionObj.answers[2]}" name="answer" type="radio"> ${questionObj.answers[2]}`)
   form.find('label').eq(3).html(`<input value="${questionObj.answers[3]}" name="answer" type="radio"> ${questionObj.answers[3]}`)
 }
-
-/*function renderAlert() {
-  if ()
-}*/
-
 
 $(document).ready(function() {
     main();

@@ -8,3 +8,8 @@
   box-shadow: 3px 4px 10px 4px rgba(0,0,0,0.2);
   margin-top: 15%;
 }
+
+.alert {
+  width: 500px;
+  display: inline-block;
+}
