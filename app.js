@@ -6,15 +6,16 @@ var questions = [
   },
   {
     question: 'What is the beginning phase order:',
-    answers: ['untap &rarr; upkeep &rarr; draw', 'upkeep &rarr; untap &rarr; draw', 'draw &rarr; untap &rarr; upkeep', 'upkeep &rarr; draw &rarr; untap'],
-    correctAnswer: 'untap &rarr; upkeep &rarr; draw'
+    answers: ['untap, upkeep, draw', 'upkeep, untap, draw', 'draw, untap, upkeep', 'upkeep, draw, untap'],
+    correctAnswer: 'untap, upkeep, draw'
+    //&rarr; doesn't seem to work? it won't match with correctAnswer. replaced with commas for now.
   },
   {
     question: 'An interrupt/instant can be cast when:',
     answers: ['Beginning phase only', 'Any time', 'Main phase only', 'Attack phase only'],
     correctAnswer: 'Any time'
   },
-  /*{
+  {
     question: 'A standard deck of Magic cards has:',
     answers: ['40 cards', '100 cards', '80 cards', '60 cards'],
     correctAnswer: '60 cards'
@@ -26,13 +27,13 @@ var questions = [
   },
   {
     question: 'Which of the following is true for the attack phase:',
-    answers: ['You must declare all attackers before attacking.', 'You must declare blockers during the declaration of attackers.', 'You are allowed one undeclare of an attacker if they can be destroyed by any number of blockers.', 'The opponent can not block an attack if it kills their blocker.'],
-    correctAnswer: 'You must declare all attackers before attacking.'
+    answers: ['You must declare all attackers before attacking', 'You must declare blockers during the declaration of attackers', 'You are allowed one undeclare of an attacker if they can be destroyed by any number of blockers', 'The opponent can not block an attack if it kills their blocker'],
+    correctAnswer: 'You must declare all attackers before attacking'
   },
   {
     question: 'The term "tapping" is a physical action that:',
     answers: ['Turns your card face down', 'Discards your card to the graveyard', 'Turns your card sideways', 'Slide your card to the opponent '],
-    correctAnswer: 'Turns you card sideways'
+    correctAnswer: 'Turns your card sideways'
   },
   {
     question: 'A player draws __ cards at the beginning of the game:',
@@ -45,13 +46,13 @@ var questions = [
     correctAnswer: '10'
   },
   {
-    question: 'A player can have a minimum of __ cards in their hand:',
+    question: 'A player can have a minimum of __ card(s) in their hand:',
     answers: ['3', '2', '1', '0'],
     correctAnswer: '0'
-  }*/
+  }
 ];
 
-var results = [
+/*var results = [
   {
     resultsCorrect: '10',
     reaction: 'On the way to Pro Tour! You got 10/10 of the questions right!
@@ -77,7 +78,7 @@ var results = [
     reaction: 'You must be new to Magic! It’s all right, we all start somewhere!
      Check out magic.wizards.com for more info on strats and rules.'
   }
-];
+];*/
 
 var questionNumber = 0;
 var numberCorrect = 0;
@@ -91,6 +92,7 @@ function main() {
         $('.alert').addClass('hidden')
         return form.addClass('hidden')
         $('.results').removeClass('hidden')
+        //renderResults(.results)
       }
       var answer = form.find('input[name="answer"]:checked').val()
       if (answer === questions[questionNumber].correctAnswer) {
@@ -110,6 +112,9 @@ function main() {
       questionNumber++
       renderQuestion(form);
       $('.submit-button').attr('disabled', true)
+      /*$('.prev-button').on('click', function() {
+        //need to figure out something to go back?
+      })*/
     })
 
     form.on('change', 'input[type="radio"]', function() {
@@ -134,13 +139,13 @@ function renderQuestion(form) {
   form.find('label').eq(3).html(`<input value="${questionObj.answers[3]}" name="answer" type="radio"> ${questionObj.answers[3]}`)
 }
 
-function renderResults(results) {
+/*function renderResults(results) {
   if (numberCorrect === results[resultsCorrect]) {
     return
   } else if {
 
   }
-}
+}*/
 
 $(document).ready(function() {
     main();
