@@ -1,4 +1,4 @@
-.question-form {
+.question-form, .results {
   max-width: 80%;
   display: inline-block;
   width: 500px;
