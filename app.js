@@ -52,33 +52,24 @@ var questions = [
   }
 ];
 
-/*var results = [
+var results = [
   {
-    resultsCorrect: '10',
-    reaction: 'On the way to Pro Tour! You got 10/10 of the questions right!
-    Find even more opportunities to play and add to your experience on
-    magic.wizards.com with local events in your community like booster drafts
-    and Friday Night Magic!'
+    resultsCorrect: 10,
+    reaction: 'On the way to Pro Tour! You got 10/10 of the questions right! Find even more opportunities to play and add to your experience on magic.wizards.com with local events in your community like booster drafts and Friday Night Magic!'
   },
   {
-    resultsCorrect: ['9', '8', '7'],
-    reaction: 'You must be a casual player! If you’re interested in more
-    opportunities to play and maybe up your game to the next level, check out
-    magic.wizards.com to find local events like booster drafts and Friday Night
-    Magic in your community!'
+    resultsCorrect: 7,
+    reaction: 'You must be a casual player! If you\'re interested in more opportunities to play and maybe up your game to the next level, check out magic.wizards.com to find local events like booster drafts and Friday Night Magic in your community!'
   },
   {
-    resultsCorrect: ['6', '5', '4'],
-    reaction: 'Uh oh! A bit land-locked there. Maybe you’re playing by house
-    rules? Maybe it’s just been a long time since you last shuffled your deck.
-    Check out magic.wizards.com to brush up on strats and rules.'
+    resultsCorrect: 4,
+    reaction: 'Uh oh! A bit land-locked there. Maybe you\'re playing by house rules? Maybe it\'s just been a long time since you last shuffled your deck. Check out magic.wizards.com to brush up on strats and rules.'
   },
   {
-    resultsCorrect: ['3', '2', '1', '0'],
-    reaction: 'You must be new to Magic! It’s all right, we all start somewhere!
-     Check out magic.wizards.com for more info on strats and rules.'
+    resultsCorrect: 0,
+    reaction: 'You must be new to Magic! It\'s all right, we all start somewhere! Check out magic.wizards.com for more info on strats and rules.'
   }
-];*/
+];
 
 var questionNumber = 0;
 var numberCorrect = 0;
@@ -88,11 +79,12 @@ function main() {
 
     form.on('submit', function(event) {
       event.preventDefault()
-      if (questionNumber >= questions.length) {
+      if (questionNumber + 1 >= questions.length) {
         $('.alert').addClass('hidden')
-        return form.addClass('hidden')
+        form.addClass('hidden')
         $('.results').removeClass('hidden')
-        //renderResults(.results)
+        renderResults(results)
+        return
       }
       var answer = form.find('input[name="answer"]:checked').val()
       if (answer === questions[questionNumber].correctAnswer) {
@@ -112,9 +104,13 @@ function main() {
       questionNumber++
       renderQuestion(form);
       $('.submit-button').attr('disabled', true)
-      /*$('.prev-button').on('click', function() {
-        //need to figure out something to go back?
-      })*/
+    })
+
+    $('.prev-button').on('click', function() {
+      if (questionNumber === 0) { return }
+      $('.alert').addClass('hidden')
+      questionNumber--
+      renderQuestion(form)
     })
 
     form.on('change', 'input[type="radio"]', function() {
@@ -130,6 +126,7 @@ function main() {
 }
 
 function renderQuestion(form) {
+  console.log(questionNumber)
   var questionObj = questions[questionNumber]
   form.find('h6').text('#' + (questionNumber + 1))
   form.find('h3').text(questionObj.question)
@@ -139,13 +136,11 @@ function renderQuestion(form) {
   form.find('label').eq(3).html(`<input value="${questionObj.answers[3]}" name="answer" type="radio"> ${questionObj.answers[3]}`)
 }
 
-/*function renderResults(results) {
-  if (numberCorrect === results[resultsCorrect]) {
-    return
-  } else if {
-
-  }
-}*/
+function renderResults(results) {
+  results.forEach(function(item) {
+    if (numberCorrect)
+  })
+}
 
 $(document).ready(function() {
     main();
