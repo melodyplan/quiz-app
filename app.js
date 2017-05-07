@@ -68,13 +68,6 @@ function main() {
 
     form.on('submit', function(event) {
       event.preventDefault()
-      if (questionNumber + 1 >= questions.length) {
-        $('.alert').addClass('hidden')
-        form.addClass('hidden')
-        $('.results').removeClass('hidden')
-        renderResult(results)
-        return
-      }
       var answer = form.find('input[name="answer"]:checked').val()
       if (answer === questions[questionNumber].correctAnswer) {
         numberCorrect++
@@ -91,6 +84,13 @@ function main() {
       console.log(`${numberCorrect} out of ${questions.length}`)
       //console.log('numberCorrect + ' out of ' + questions.length')
       questionNumber++
+      if (questionNumber >= questions.length) {
+        $('.alert').addClass('hidden')
+        form.addClass('hidden')
+        $('.results').removeClass('hidden')
+        renderResult(results)
+        return
+      }
       renderQuestion(form);
       $('.submit-button').attr('disabled', true)
     })
@@ -117,7 +117,6 @@ function main() {
 }
 
 function renderQuestion(form) {
-  console.log(questionNumber)
   var questionObj = questions[questionNumber]
   form.find('h6').text('#' + (questionNumber + 1))
   form.find('h3').text(questionObj.question)
@@ -150,3 +149,5 @@ function renderResult(results) {
 $(document).ready(function() {
     main();
 })
+
+//question: it won't let me get 100%? i think it has to do with my +1
