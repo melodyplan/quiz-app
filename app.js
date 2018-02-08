@@ -207,8 +207,6 @@ function renderResult(results) {
 //the flipper js helper
 function flipper() {
   //grab the els we need
-  var trigger = $('.deck');
-  var flip = $('.flip');
   var sides = flip.find('.front,.back');
 
   //sniff for IE
@@ -219,9 +217,9 @@ function flipper() {
   duration = parseInt(duration) * 1000;
 
   //on click of trigger
-  trigger.on('click', function() {
+  $('.deck').on('click', function() {
     //toggle flipped class to trigger css animation
-    flip.toggleClass('flipped');
+    $('.flip').toggleClass('flipped');
 
     //change the text in the button
     /*if(flip.hasClass("flipped")){

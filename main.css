@@ -15,7 +15,7 @@
   display: inline-block;
 }
 
-h3 {
+.deck-title {
   text-align: center;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 .flip {
   width: 100%;
-  height: 100%;
+  /*height: 100%;*/
   position: relative;
   z-index: 0;
   -webkit-perspective: 1000px;
