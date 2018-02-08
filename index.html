@@ -10,53 +10,62 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/">Test Your Basic MTG Knowledge!</a>
+      <a class="navbar-brand" href="/quiz-app">Test Your Basic MTG Knowledge!</a>
     </div>
   </div>
 </nav>
   <main class="container-fluid">
-    <section class="row hidden">
-      <button type="submit">Click Me to Start</button>
-      <!--Need to link it   to show hidden questions-->
-    </section>
-    <section class="row text-center">
-      <form class="question-form text-left">
-        <h6 class="text-right">#1</h6>
-        <h3>Question 1</h3>
-        <div class="radio answer-1">
-          <label>
-            <input value="Answer 1" name="answer" type="radio"> Answer 1
-          </label>
-        </div>
-        <div class="radio answer-2">
-          <label>
-            <input value="Answer 2" name="answer" type="radio"> Answer 2
-          </label>
-        </div>
-        <div class="radio answer-3">
-          <label>
-            <input value="Answer 3" name="answer" type="radio"> Answer 3
-          </label>
-        </div>
-        <div class="radio answer-4">
-          <label>
-            <input value="Answer 4" name="answer" type="radio"> Answer 4
-          </label>
-        </div>
-        <button type="submit" class="btn btn-success pull-right submit-button" disabled>Submit</button>
-        <button type="button" class="btn btn-default prev-button">Previous</button>
-      </form>
-      </br>
-      <div class="alert hidden" role="alert">
-        Melody! You forgot to hook me up
-      </div>
-      <div class="results hidden">
-        <p class="num-correct">
-          3 out of 10.
-        </p>
-        <p class="result">
-          render result here
-        </p>
+
+    <section class="row">
+      <div class="flip">
+      	<div class="front">
+      		<div class="container">
+            <img src="cardback.jpg">
+      		  <button type="submit start">Click Me to Start</button>
+      		</div>
+      		<div class="back">
+            <section class="row text-center">
+              <form class="question-form text-left hidden">
+                <h6 class="text-right">#1</h6>
+                <h3>Question 1</h3>
+                <div class="radio answer-1">
+                  <label>
+                    <input value="Answer 1" name="answer" type="radio"> Answer 1
+                  </label>
+                </div>
+                <div class="radio answer-2">
+                  <label>
+                    <input value="Answer 2" name="answer" type="radio"> Answer 2
+                  </label>
+                </div>
+                <div class="radio answer-3">
+                  <label>
+                    <input value="Answer 3" name="answer" type="radio"> Answer 3
+                  </label>
+                </div>
+                <div class="radio answer-4">
+                  <label>
+                    <input value="Answer 4" name="answer" type="radio"> Answer 4
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-success pull-right submit-button" disabled>Submit</button>
+                <button type="button" class="btn btn-default prev-button">Previous</button>
+              </form>
+              </br>
+              <div class="alert hidden" role="alert">
+                Melody! You forgot to hook me up
+              </div>
+              <div class="results hidden">
+                <p class="num-correct">
+                  3 out of 10.
+                </p>
+                <p class="result">
+                  render result here
+                </p>
+              </div>
+            </section>
+      		</div>
+      	</div>
       </div>
     </section>
   </main>
