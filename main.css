@@ -15,11 +15,11 @@
   display: inline-block;
 }
 
-.deck-title {
+.cardback-title {
   text-align: center;
 }
 
-.deck {
+.cardback {
   height: 50vh;
   margin-left: 50vh;
   margin-top: 15vh;
