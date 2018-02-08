@@ -217,7 +217,8 @@ function flipper() {
   duration = parseInt(duration) * 1000;
 
   //on click of trigger
-  $('.deck').on('click', function() {
+  $('#deck').on('click', function(event) {
+    event.preventDefault();
     //toggle flipped class to trigger css animation
     $('.flip').toggleClass('flipped');
 
