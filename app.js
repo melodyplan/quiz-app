@@ -207,7 +207,7 @@ function renderResult(results) {
 //the flipper js helper
 function flipper() {
   //grab the els we need
-  var trigger = $('.start');
+  var trigger = $('.deck');
   var flip = $('.flip');
   var sides = flip.find('.front,.back');
 
@@ -221,10 +221,10 @@ function flipper() {
   //on click of trigger
   trigger.on('click', function() {
     //toggle flipped class to trigger css animation
-    /*flip.toggleClass("flipped");
+    flip.toggleClass('flipped');
 
     //change the text in the button
-    if(flip.hasClass("flipped")){
+    /*if(flip.hasClass("flipped")){
       trigger.find("span").text("I cower at your goaty waddles!");
     }else{
       trigger.find("span").text("Click for flippin' good times!");

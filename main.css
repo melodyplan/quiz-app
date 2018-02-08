@@ -15,6 +15,16 @@
   display: inline-block;
 }
 
+.h3 {
+  text-align: center;
+}
+
+.deck {
+  height: 50vh;
+  margin-left: 50vh;
+  margin-top: 15vh;
+}
+
 $speed: 1s;
 $perspective: 1000px;
 body {
