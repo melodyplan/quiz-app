@@ -206,8 +206,7 @@ function renderResult(results) {
 
 //the flipper js helper
 function flipper() {
-  //grab the els we need
-  var sides = flip.find('.front,.back');
+  var sides = $('.flip').find('.front,.back');
 
   //sniff for IE
   var msie = /Trident\/7\./.test(navigator.userAgent);
