@@ -211,7 +211,6 @@ function flip() {
 
 $(document).ready(function() {
   main();
-  flip();
 });
 
 //question: it won't let me get 100%? i think it has to do with my +1
