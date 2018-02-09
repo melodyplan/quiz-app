@@ -10,13 +10,20 @@
   margin-top: 15%;
 }
 
+.radio,
+.results {
+  position: relative;
+  text-align: left;
+}
+
 .alert {
   width: 500px;
-  display: inline-block;
+  margin-left: 58vh;
 }
 
 #cardback {
   height: 50vh;
+  cursor: pointer;
 }
 
 .container {
@@ -45,13 +52,13 @@
 }
 .card div {
   display: block;
-  height: 100%;
+  /*height: 100%;*/
   width: 100%;
-  line-height: 260px;
-  color: white;
+  /*line-height: 260px;*/
+  /*color: white;*/
   text-align: center;
-  font-weight: bold;
-  font-size: 140px;
+  /*font-weight: bold;*/
+  /*font-size: 140px;*/
   position: absolute;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
