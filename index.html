@@ -17,14 +17,13 @@
   <main class="container-fluid">
 
     <section class="row">
-      <div class="flip">
-      	<div class="front">
-      		<div class="container">
-            <h3 class="cardback-title">Draw the deck to start.</h3>
-            <img src="cardback.jpg" class="cardback">
-      		</div>
+      <!-- <button onclick="flip()">flip the card</button> -->
+      <div class="container">
+        <div class="front" onclick="flip()">
+          <h3 class="cardback-title">Draw the deck to start.</h3>
+          <img src="cardback.jpg" class="cardback">
         </div>
-    		<div class="back">
+        <div class="back">
           <section class="row text-center">
             <form class="question-form text-left hidden">
               <h6 class="text-right">#1</h6>

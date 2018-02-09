@@ -204,45 +204,13 @@ function renderResult(results) {
   });
 }*/
 
-//the flipper js helper
-function flipper() {
-  var sides = $('.flip').find('.front,.back');
-
-  //sniff for IE
-  var msie = /Trident\/7\./.test(navigator.userAgent);
-
-  //work out the duration of the animation in ms (used in the ie fix)
-  var duration = sides.css('transition-duration') || '30s';
-  duration = parseInt(duration) * 1000;
-
-  //on click of trigger
-  $('.flip').on('click', '.cardback', function(event) {
-    event.preventDefault();
-    //toggle flipped class to trigger css animation
-    $('.flip').toggleClass('flipped');
-
-    //change the text in the button
-    /*if(flip.hasClass("flipped")){
-      trigger.find("span").text("I cower at your goaty waddles!");
-    }else{
-      trigger.find("span").text("Click for flippin' good times!");
-    }*/
-
-    //IE FIX
-    //having overflow or perspective on the flipped elements breaks backface visibility in ie.
-    //We want to keep perspective so we remove the overflow of the els during the animation
-    if (msie) {
-      sides.css('overflow', 'hidden');
-      setTimeout(function() {
-        sides.css('overflow', '');
-      }, duration);
-    }
-  });
+function flip() {
+  $('.card').toggleClass('flipped');
 }
 
 $(document).ready(function() {
   main();
-  flipper();
+  flip();
 });
 
 //question: it won't let me get 100%? i think it has to do with my +1
