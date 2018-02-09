@@ -15,9 +15,13 @@
   display: inline-block;
 }
 
+.cardback {
+  height: 50vh;
+}
+
 .container {
-  width: 200px;
-  height: 260px;
+  width: 800px;
+  height: 860px;
   position: relative;
   border: 1px solid #ccc;
   -webkit-perspective: 800px;
