@@ -15,7 +15,7 @@
   display: inline-block;
 }
 
-.cardback {
+#cardback {
   height: 50vh;
 }
 
@@ -63,7 +63,6 @@
   z-index: 0;
 }
 .card .back {
-  /*background: blue;*/
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
