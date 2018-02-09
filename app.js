@@ -205,6 +205,7 @@ function renderResult(results) {
 }*/
 
 function flip() {
+  console.log('you clicked flip!');
   $('.card').toggleClass('flipped');
 }
 
