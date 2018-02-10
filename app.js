@@ -207,6 +207,7 @@ function renderResult(results) {
 function flip() {
   console.log('you clicked flip!');
   $('.card').toggleClass('flipped');
+  // $('.question-form').removeClass('hidden');
 }
 
 $(document).ready(function() {

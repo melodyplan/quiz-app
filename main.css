@@ -10,13 +10,16 @@
   margin-top: 15%;
 }
 
-.card > .radio,
+.answer-1,
+.answer-2,
+.answer-3,
+.answer-4,
 .results {
   position: relative;
   text-align: left;
 }
 
-.card > .alert {
+.pos-or-neg {
   width: 500px;
   margin-left: 58vh;
 }
