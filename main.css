@@ -10,13 +10,13 @@
   margin-top: 15%;
 }
 
-.radio,
+.card > .radio,
 .results {
   position: relative;
   text-align: left;
 }
 
-.alert {
+.card > .alert {
   width: 500px;
   margin-left: 58vh;
 }
@@ -36,6 +36,7 @@
   -o-perspective: 800px;
   perspective: 800px;
 }
+
 .card {
   width: 100%;
   height: 100%;
