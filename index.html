@@ -17,7 +17,7 @@
   <main class="container-fluid">
 
     <section class="row">
-      <button onclick="flip()">flip the card</button>
+      <button type="button" class="btn btn-default pull-right flipper" onclick="flip()">↔</button>
       <div class="card">
         <div class="front">
           <h3 class="cardback-title">Flip the card to start.</h3>
@@ -52,10 +52,10 @@
               <button type="button" class="btn btn-default prev-button">Previous</button>
             </form>
             </br>
-            <div class="alert pos-or-neg hidden" role="alert">
+            <div class="alert hidden" id="pos-or-neg" role="alert">
               Melody! You forgot to hook me up
             </div>
-            <div class="results hidden">
+            <div class="results hidden" id="result">
               <p class="num-correct">
                 3 out of 10.
               </p>
