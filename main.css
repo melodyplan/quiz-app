@@ -10,10 +10,10 @@
   margin-top: 15%;
 }
 
-.answer-1,
-.answer-2,
-.answer-3,
-.answer-4,
+#answer-1,
+#answer-2,
+#answer-3,
+#answer-4,
 .results {
   position: relative;
   text-align: left;
